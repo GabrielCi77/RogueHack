@@ -33,7 +33,7 @@ class person{
 
 class enemy:public person{
     public:
-    void hit(int d,Hero* H){
+    void hit(int d, Hero* H){
         if (h-d>0){
             h-=d; //réduit sa vie
         }
@@ -41,13 +41,14 @@ class enemy:public person{
             die(H);
             alive=false;//meurt si il a plus de vie
         }
-        void attaque(Hero* H, vector< enemy* > L){
-            for(int i=0;i<L.size();i++){
-                if (assezproche(H,L[i]))
-                    H.hit(L[i]->str);
-            }
+    }
+    void attaque(Hero* H, vector< enemy* > L){
+        for(int i=0;i<L.size();i++){
+            if (assezproche(H,L[i]))
+                H->hit(L[i]->str);
         }
     }
+    
     void die(Hero* H){
         H->plusexp(expgiven);
     }
