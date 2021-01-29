@@ -1,12 +1,14 @@
 #include <utility>
 #include <cmath>
+#include <vector>
+
 using namespace std;
 
 class person{
     public :
         void move (int x0,int y0){
-            coord.second+=x0;
-            coord.first+=y0;
+            coord.first+=x0;
+            coord.second+=y0;
         } // Change la position, à utiliser surement avec des + ou -1 seulement pour éviter des téléportations
         pair<int,int> getpos(){
             return coord;
@@ -17,17 +19,20 @@ class person{
         bool isalive(){
             return alive;
         }
+        bool assezproche(person*,person*);
+        int portee=1;
     private :
         std::pair <int,int> coord;
         char e; // char de représentation
     protected:
-        person(int x0,int y0,int h0,char c0,int str0):coord(x0,y0),h(h0),str(str0){}; //Constructeur private à accéder grace aux sous-classe !PAS DE PERSON H DANS LE CODE!
+        person(int x0,int y0,int h0,char c0,int str0):coord(x0,y0),e(c0),h(h0),str(str0){}; //Constructeur private à accéder grace aux sous-classe !PAS DE PERSON H DANS LE CODE!
         int h; //points de vie
         bool alive= true;
         int str; //point de force
 };
 
 class enemy:public person{
+    public:
     void hit(int d,Hero* H){
         if (h-d>0){
             h-=d; //réduit sa vie
@@ -35,6 +40,12 @@ class enemy:public person{
         else{
             die(H);
             alive=false;//meurt si il a plus de vie
+        }
+        void attaque(Hero* H, vector< enemy* > L){
+            for(int i=0;i<L.size();i++){
+                if (assezproche(H,L[i]))
+                    H.hit(L[i]->str);
+            }
         }
     }
     void die(Hero* H){
@@ -95,10 +106,16 @@ class Hero:public person{
         }
         void hit(int d){
             if (d<h){
-                h-=d;
+                h-=max(0,d-armor);
             }
             else{
                 alive=false;
+            }
+        }
+        void attaque(Hero* H, vector< enemy* > L){
+            for(int i=0;i<L.size();++i){
+                if (assezproche(H,L[i]))
+                    L[i]->hit(H->str,H);
             }
         }
     private:
