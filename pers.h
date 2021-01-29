@@ -1,3 +1,4 @@
+#pragma once
 #include <utility>
 #include <cmath>
 #include <vector>
@@ -34,7 +35,7 @@ class person{
         int str; //point de force
 };
 
-class enemy:public person{
+/*class enemy:public person{
     public:
     void hit(int d, Hero* H){
         if (h-d>0){
@@ -89,7 +90,7 @@ class bme:public enemy{
     public :
         bme(int x0,int y0):enemy(x0,y0,2,'<',1,10){
         };
-};
+};*/
 
 class Hero:public person{
     public :
