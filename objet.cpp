@@ -2,18 +2,21 @@
 #include "stdlib.h"
 
 class Objet{
+/* Classe pour tous les objets fixes
+Ils comportent chacun une position, un symbole, une valeur et un poids pour l'inventaire*/
 public:
     Objet(std::pair<int, int> pos):pos(pos){
         type[0] = Symbole;
         type[1] = Valeur;
     }
 
+    /* Constructeur different mais non utilise
     Objet(int x, int y){
         pos = std::make_pair(x, y);
     }
     std::pair<int, int> GetPos(){
         return pos;
-    }
+    } */
 
     int GetChar(){
         return Symbole;
@@ -34,20 +37,20 @@ protected:
     int Poids; //Place prise par l'objet dans l'inventaire
     std::pair<int, int> pos; //position sur le plateau
     char Symbole; // $ pour une piece, p pour une potion
-    int type[];
+    int type[]; //Permet de donner le tuple de Valeur, Poids, Symbole
 };
 
     class Piece : public Objet{
     public:
         Piece(std::pair<int, int> pos): Objet(pos){
-            Symbole='$';
-            Poids=1; // le poids est 1 pour toutes les pieces
+            Symbole='$'; //int=36
+            Poids=0; // le poids est 1 pour toutes les pieces
         }
-        //Deuxieme constructeur si on rentre deux entiers au lieu d'une paire
+        /*Deuxieme constructeur si on rentre deux entiers au lieu d'une paire
         Piece(int x, int y): Objet(x, y){
             Symbole='$';
             Poids=1;
-        }
+        }*/
     };
 
         class PetitePiece : public Piece{
@@ -75,14 +78,14 @@ protected:
         public:
             PetitePotion(std::pair<int, int> pos): Potion(pos){
                 Valeur=5;
-                Symbole='p';
+                Symbole='p';//int=112
             }
         };
         class GrandePotion : public Potion{
         public:
             GrandePotion(std::pair<int, int> pos): Potion(pos){
                 Valeur=10;
-                Symbole='P';
+                Symbole='P';//int=80
             }
         };
 
@@ -97,7 +100,7 @@ protected:
             Casque(std::pair<int, int> pos): Armure(pos){
                 Valeur=2;
                 Poids=1;
-                Symbole='c';
+                Symbole='c';//int=99
             }
         };
 
@@ -106,14 +109,14 @@ protected:
             Plastron(std::pair<int, int> pos): Armure(pos){
                 Valeur=5;
                 Poids=2;
-                Symbole='&';
+                Symbole='&';//38
             }
         };
 
     class Arme : public Objet{
     public:
         Arme(std::pair<int, int> pos): Objet(pos){
-            Symbole='!';
+            Symbole='!';//33
         }
     };
 
@@ -130,6 +133,15 @@ protected:
             EpeeLegende(std::pair<int, int> pos): Arme(pos){
                 Valeur=5;
                 Poids=2;
+            }
+        };
+
+        class Arc : Arme{
+        public:
+            Arc(std::pair<int, int> pos): Arme(pos){
+                Valeur=5;
+                Poids=3;
+                Symbole='('; //int=40
             }
         };
 
