@@ -2,7 +2,7 @@
 #include <utility>
 #include <cmath>
 #include <vector>
-#include "objet.cpp"
+#include "objet.h"
 
 using namespace std;
 
@@ -46,16 +46,8 @@ class enemy:public person{
             alive=false;//meurt si il a plus de vie
         }
     }
-    void attaque(Hero H, vector< enemy* > L){
-        for(int i=0;i<L.size();i++){
-            if (assezproche(H,L[i]))
-                H->hit(L[i]->str);
-        }
-    }
-    
-    void die(Hero* H){
-        H->plusexp(expgiven);
-    }
+    void attaque(Hero*, vector< enemy* >);
+    void die(Hero*);
     private:
         int expgiven; //expérience donnée au joueur en mourant
     protected:

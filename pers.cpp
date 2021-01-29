@@ -1,6 +1,6 @@
 #include "pers.h"
 #include <cmath>
-#include "objet.cpp"
+#include "objet.h"
 
 bool person::assezproche(person* H,person* L){
     int por=H->portee;
@@ -23,4 +23,15 @@ bool Hero::surobjet(Objet* B){
         return true;
     }
     return false;
+}
+
+void enemy::attaque(Hero* H, vector< enemy* > L){
+        for(int i=0;i<L.size();i++){
+            if (assezproche(H,L[i]))
+                H->hit(L[i]->str);
+        }
+    }
+
+void enemy::die(Hero* H){
+        H->plusexp(expgiven);
 }
