@@ -1,6 +1,7 @@
 #include <utility>
 #include <cmath>
 #include <vector>
+#include "objet.cpp"
 
 using namespace std;
 
@@ -119,6 +120,7 @@ class Hero:public person{
                     L[i]->hit(H->str,H);
             }
         }
+        bool surobjet(Objet);
     private:
         int mana; //point de magie nécéssaire pour prendre des dégats
         int level; // le niveau du personnage
