@@ -66,25 +66,25 @@ class bat:public enemy{
 
 class DK:public enemy{
     public :
-        DK(int x0,int y0):enemy(x0,y0,30,'£',5,1000){
+        DK(int x0,int y0):enemy(x0,y0,30,'&',5,1000){
         };
 };
 
 class goblin:public enemy{
     public :
-        goblin(int x0,int y0):enemy(x0,y0,6,'ù',2,50){
+        goblin(int x0,int y0):enemy(x0,y0,6,'G',2,50){
         };
 };
 
 class skeleton:public enemy{
     public :
-        skeleton(int x0,int y0):enemy(x0,y0,8,'$',3,100){
+        skeleton(int x0,int y0):enemy(x0,y0,8,'S',3,100){
         };
 };
 
 class bme:public enemy{
     public :
-        bme(int x0,int y0):enemy(x0,y0,2,'ç',1,10){
+        bme(int x0,int y0):enemy(x0,y0,2,'<',1,10){
         };
 };
 
