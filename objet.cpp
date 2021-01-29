@@ -13,10 +13,11 @@ public:
     /* Constructeur different mais non utilise
     Objet(int x, int y){
         pos = std::make_pair(x, y);
-    }
+    }*/
+
     std::pair<int, int> GetPos(){
         return pos;
-    } */
+    } 
 
     int GetChar(){
         return Symbole;
@@ -27,7 +28,6 @@ public:
     int GetVal(){
         return Valeur;
     }
-
     int* TakeObjet(){
         return type;
     }
@@ -109,7 +109,7 @@ protected:
             Plastron(std::pair<int, int> pos): Armure(pos){
                 Valeur=5;
                 Poids=2;
-                Symbole='&';//38
+                Symbole='M';
             }
         };
 
