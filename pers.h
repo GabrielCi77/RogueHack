@@ -4,6 +4,9 @@
 
 using namespace std;
 
+
+class Hero; 
+
 class person{
     public :
         void move (int x0,int y0){
