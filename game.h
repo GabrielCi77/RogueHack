@@ -7,7 +7,7 @@
 #include "time.h"
 #include <map>
 #include "board.h"
-#include "./RogueHack/pers.h"
+#include "pers.h"
 
 class game
 {

@@ -35,7 +35,7 @@ class person{
         int str; //point de force
 };
 
-/*class enemy:public person{
+class enemy:public person{
     public:
     void hit(int d, Hero* H){
         if (h-d>0){
@@ -46,7 +46,7 @@ class person{
             alive=false;//meurt si il a plus de vie
         }
     }
-    void attaque(Hero* H, vector< enemy* > L){
+    void attaque(Hero H, vector< enemy* > L){
         for(int i=0;i<L.size();i++){
             if (assezproche(H,L[i]))
                 H->hit(L[i]->str);
@@ -90,7 +90,7 @@ class bme:public enemy{
     public :
         bme(int x0,int y0):enemy(x0,y0,2,'<',1,10){
         };
-};*/
+};
 
 class Hero:public person{
     public :

@@ -2,7 +2,7 @@
 #include "stdlib.h"
 #include <map>
 #include "game.h"
-#include "./RogueHack/pers.h"
+#include "pers.h"
 
 int game::keyEvent(){
     if( !initialized){

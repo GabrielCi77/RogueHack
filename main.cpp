@@ -2,7 +2,7 @@
 
 #include "board.h"
 #include "game.h"
-#include "./RogueHack/pers.h"
+#include "pers.h"
 
 int main(){
     board board_basic;

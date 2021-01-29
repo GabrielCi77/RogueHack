@@ -2,7 +2,7 @@
 #include <iostream>
 #include <map>
 #include "stdlib.h"
-#include "./RogueHack/pers.h"
+#include "pers.h"
 
 class board {
 
