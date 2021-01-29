@@ -123,7 +123,24 @@ class Hero:public person{
                     L[i]->hit(H->str,H);
             }
         }
-        bool surobjet(Objet);
+        bool surobjet(Objet*);
+        void powerup(vector<Objet* >O){
+            for (int i=0;i<O.size();++i){
+                if (surobjet(O[i])){
+                    char c (O[i]->GetChar());
+                    int val=O[i]->GetVal();
+                    switch (c){
+                        case '(': portee+=1;
+                        case '$': gold+=val;
+                        case 'p': h=min(hmax,h+val);
+                        case 'P': h=min(hmax,h+val);
+                        case 'c': armor+=val;
+                        case 'M': armor+=val;
+                        case '!': str+=val;
+                    }
+                }
+            }
+        }
     private:
         int mana; //point de magie nécéssaire pour prendre des dégats
         int level; // le niveau du personnage
